@@ -105,6 +105,7 @@ class Shelter
 	private String shelterName;
 	private int numberAnimals;
 	private Animal animals[];
+	private double dailyFoodAverage = dailyFoodAverageCalculation();
 	
 	//Shelter Constructor
 	public Shelter(String shelterName, int maxNumberAnimals)
@@ -145,6 +146,24 @@ class Shelter
 			totalWeeklyFood = totalWeeklyFood + animals[index].getWeeklyFood();
 		}
 		return totalWeeklyFood;
+	}
+	
+	//average daily food Calculation
+	private double dailyFoodAverageCalculation()
+	{
+		double currentTotal = 0;
+		for (int index = 0; index < numberAnimals; index++)
+		{
+			currentTotal = currentTotal + animals[index].getDailyFood();
+		}
+		double currentAverage = currentTotal / numberAnimals;
+		return currentAverage;
+	}
+	
+	//getter for daily food average
+	public double getDailyAverageFood()
+	{
+		return dailyFoodAverage;
 	}
 	
 }
