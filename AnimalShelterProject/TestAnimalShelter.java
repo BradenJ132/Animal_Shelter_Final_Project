@@ -101,6 +101,29 @@ class Animal
 //Start Shelter Class
 class Shelter
 {
+	//Shelter instance variables 
+	private String shelterName;
+	private int numberAnimals;
+	private Animal animals[];
+	
+	//Shelter Constructor
+	public Shelter(String shelterName, int maxNumberAnimals)
+	{
+		this.shelterName = shelterName;
+		animals = new Animal[maxNumberAnimals];
+				
+	}
+	//getter for shelter name
+	public String getSheltername()
+	{
+		return shelterName;
+	}
+	
+	public int getNumberAnimals()
+	{
+		return numberAnimals;
+	}
+	
 	
 }
 //End Shelter Class
