@@ -110,20 +110,42 @@ class Shelter
 	public Shelter(String shelterName, int maxNumberAnimals)
 	{
 		this.shelterName = shelterName;
-		animals = new Animal[maxNumberAnimals];
-				
+		animals = new Animal[maxNumberAnimals];	
 	}
+	
+	//add animal to animals array
+	public void addAnimals(Animal newAnimal)
+	{
+		if (numberAnimals < animals.length)
+		{
+			animals[numberAnimals] = newAnimal;
+			numberAnimals++;
+		}
+	}
+	
 	//getter for shelter name
 	public String getSheltername()
 	{
 		return shelterName;
 	}
 	
+	//getter for number of animals
 	public int getNumberAnimals()
 	{
 		return numberAnimals;
 	}
 	
+	
+	//getter for total weekly food amount 
+	public double getTotalWeeklyFood()
+	{
+		double totalWeeklyFood = 0;
+		for (int index = 0; index < numberAnimals; index++)
+		{
+			totalWeeklyFood = totalWeeklyFood + animals[index].getWeeklyFood();
+		}
+		return totalWeeklyFood;
+	}
 	
 }
 //End Shelter Class
