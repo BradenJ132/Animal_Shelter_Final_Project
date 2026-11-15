@@ -180,7 +180,7 @@ class Shelter
 	{
 		return dailyFoodAverage;
 	}
-	
+	//method to display shelter details 
 	public void displayShelterDetails()
 	{
 		System.out.println(shelterName);
