@@ -2,6 +2,10 @@
 public class TestAnimalShelter {
 
 	public static void main(String[] args) {
+		Shelter braden = new Shelter("braden", 3);
+		Animal jerry = new Animal("jerry", 30, 2.5, "dog");
+		braden.addAnimal(jerry);
+		braden.displayShelterDetails();
 		
 
 	}
@@ -27,7 +31,16 @@ class Animal
 		this.animalSpecies = animalSpecies;
 	}
 	
-	
+	//display animal info method 
+	public void displayAnimalInfo()
+	{
+		System.out.println("name = " + animalName);
+		System.out.println("species = " + animalSpecies);
+		System.out.println("weight = " + animalWeight);
+		System.out.println("weight category = " + weightClass);
+		System.out.println("daily food = " + dailyFood);
+		System.out.println("weekly food = " + weeklyFood);
+	}
 	
 	//getter for animal name
 	public String getAnimalName()
@@ -107,6 +120,7 @@ class Shelter
 	private Animal animals[];
 	private double dailyFoodAverage = dailyFoodAverageCalculation();
 	
+	
 	//Shelter Constructor
 	public Shelter(String shelterName, int maxNumberAnimals)
 	{
@@ -115,7 +129,7 @@ class Shelter
 	}
 	
 	//add animal to animals array
-	public void addAnimals(Animal newAnimal)
+	public void addAnimal(Animal newAnimal)
 	{
 		if (numberAnimals < animals.length)
 		{
@@ -135,6 +149,7 @@ class Shelter
 	{
 		return numberAnimals;
 	}
+	
 	
 	
 	//getter for total weekly food amount 
@@ -166,5 +181,19 @@ class Shelter
 		return dailyFoodAverage;
 	}
 	
+	public void displayShelterDetails()
+	{
+		System.out.println(shelterName);
+		System.out.println("********************");
+		System.out.println("Max number of animals = " + animals.length);
+		System.out.println("the current number of animals = " + numberAnimals);
+		System.out.println("********************");
+		for(int index = 0; index < numberAnimals; index ++)
+		{
+			animals[index].displayAnimalInfo();
+			
+		}
+		
+	}
 }
 //End Shelter Class
