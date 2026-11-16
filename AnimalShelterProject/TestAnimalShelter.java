@@ -2,10 +2,14 @@
 public class TestAnimalShelter {
 
 	public static void main(String[] args) {
-		Shelter braden = new Shelter("braden", 3);
-		Animal jerry = new Animal("jerry", 30, 2.5, "dog");
-		braden.addAnimal(jerry);
-		braden.displayShelterDetails();
+		Shelter FootHills = new Shelter("FootHills", 3);
+		Animal jerry = new Animal("jerry", 2.5, 30, "dog");
+		Animal terry = new Animal("terry", 5.0, 110, "zebra");
+		FootHills.addAnimal(jerry);
+		FootHills.addAnimal(terry);
+		FootHills.displayShelterDetails();
+		FootHills.getTotalWeeklyFood();
+		FootHills.displayAboveAverage();
 		
 
 	}
@@ -19,8 +23,7 @@ class Animal
 	private double dailyFood;
 	private double animalWeight;
 	private String animalSpecies;
-	private double weeklyFood = weeklyFoodCalculation();
-	private String weightClass = weightClassCalculation();
+	
 	
 	//constructor for animal object
 	public Animal(String animalName, double dailyFood, double animalWeight, String animalSpecies)
@@ -37,9 +40,10 @@ class Animal
 		System.out.println("name = " + animalName);
 		System.out.println("species = " + animalSpecies);
 		System.out.println("weight = " + animalWeight);
-		System.out.println("weight category = " + weightClass);
+		System.out.println("weight category = " + getWeightClass());
 		System.out.println("daily food = " + dailyFood);
-		System.out.println("weekly food = " + weeklyFood);
+		System.out.println("weekly food = " + getWeeklyFood());
+		
 	}
 	
 	//getter for animal name
@@ -65,21 +69,16 @@ class Animal
 	{
 		return animalSpecies;
 	}
-	//calculates weekly food
-	private double weeklyFoodCalculation()
+	//calculates weekly food and getter for weekly food
+	public double getWeeklyFood()
 	{
 		
 		double currentWeeklyFood = dailyFood * 7;
 		return currentWeeklyFood;
 	}
-	//getter for weekly food
-	public double getWeeklyFood()
-	{
-		return weeklyFood;
-	}
 	
-	// calculates weight class
-	private String weightClassCalculation()
+	// calculates weight class and getter for weight class
+	public String getWeightClass()
 	{
 		
 			String animalWeightCategory;
@@ -102,11 +101,7 @@ class Animal
 		
 		return animalWeightCategory;
 	}
-	//getter for weight class
-	public String getWeightClass()
-	{
-		return weightClass;
-	}
+	
 	
 }
 //end Animal Class
@@ -118,7 +113,7 @@ class Shelter
 	private String shelterName;
 	private int numberAnimals;
 	private Animal animals[];
-	private double dailyFoodAverage = dailyFoodAverageCalculation();
+	
 	
 	
 	//Shelter Constructor
@@ -160,11 +155,13 @@ class Shelter
 		{
 			totalWeeklyFood = totalWeeklyFood + animals[index].getWeeklyFood();
 		}
+		System.out.println("Total weekly food = " + totalWeeklyFood);
+		System.out.println("********************");
 		return totalWeeklyFood;
 	}
 	
-	//average daily food Calculation
-	private double dailyFoodAverageCalculation()
+	//average daily food Calculation and getter for average daily food
+	public double getAverageDailyFood()
 	{
 		double currentTotal = 0;
 		for (int index = 0; index < numberAnimals; index++)
@@ -175,11 +172,20 @@ class Shelter
 		return currentAverage;
 	}
 	
-	//getter for daily food average
-	public double getDailyAverageFood()
+	//list animals at or above 
+	public void displayAboveAverage()
 	{
-		return dailyFoodAverage;
+		System.out.println("Animals at or above average daily food:");
+		System.out.println(" ");
+		for (int index = 0; index < numberAnimals; index++)
+		{
+			if (animals[index].getDailyFood() >= getAverageDailyFood())
+					{
+				System.out.println(animals[index].getAnimalName());
+					}
+		}
 	}
+	
 	//method to display shelter details 
 	public void displayShelterDetails()
 	{
@@ -191,6 +197,7 @@ class Shelter
 		for(int index = 0; index < numberAnimals; index ++)
 		{
 			animals[index].displayAnimalInfo();
+			System.out.println("********************");
 			
 		}
 		
