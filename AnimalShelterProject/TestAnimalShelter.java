@@ -2,15 +2,15 @@
 public class TestAnimalShelter {
 
 	public static void main(String[] args) {
-		Shelter FootHills = new Shelter("FootHills", 3);
-		Animal jerry = new Animal("jerry", 2.5, 30, "dog");
-		Animal terry = new Animal("terry", 5.0, 110, "zebra");
+		RescueCenter FootHills = new RescueCenter("FootHills", 3);
+		Animal jerry = new Animal("jerry", "dog", 30, 1.3);
+		Animal terry = new Animal("terry", "zebra", 110, 5.2);
 		FootHills.addAnimal(jerry);
 		FootHills.addAnimal(terry);
 		FootHills.displayShelterDetails();
 		FootHills.getTotalWeeklyFood();
 		FootHills.displayAboveAverage();
-		
+			
 
 	}
 
@@ -40,9 +40,9 @@ class Animal
 		System.out.println("name = " + name);
 		System.out.println("species = " + species);
 		System.out.println("weight = " + weight);
-		System.out.println("weight category = " + getWeightClass());
+		System.out.println("weight category = " + determineWeightCategory());
 		System.out.println("daily food = " + dailyFoodAmount);
-		System.out.println("weekly food = " + getWeeklyFood());
+		System.out.println("weekly food = " + calculateWeeklyFood());
 		
 	}
 	
