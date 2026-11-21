@@ -10,11 +10,11 @@ public class TestAnimalShelter {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter File name");
 		
-		String fileName = input.nextStr() + ".txt";
+		String fileName = input.nextLine() + ".txt";
 		input.close();
 		try
 		{
-			RescueCenter testRescueCenter = new RescueCenter("Braden's Rescue", 6);
+			RescueCenter testRescueCenter = new RescueCenter("Braden's Rescue", 5);
 			rescueSetUp(fileName, testRescueCenter);
 			testRescueCenter.displayShelterDetails();
 			testRescueCenter.displayAboveAverage();
@@ -181,6 +181,10 @@ class RescueCenter
 		{
 			animals[animalCount] = newAnimal;
 			animalCount++;
+		}
+		else
+		{
+			System.out.println("Max Number of animals reached " + animals.length);
 		}
 	}
 	

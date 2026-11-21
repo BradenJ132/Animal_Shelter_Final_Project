@@ -1,0 +1,7 @@
+terry BeardedDragon 3.217 0.2
+jerry Snake 20 1.79
+larry Racoon 30.1 3.00
+berry Deer 170.31 6
+carey Bird 0.7 0.1
+harry Moose 2192.81 90.71
+sherry Skunk 20.92 2
