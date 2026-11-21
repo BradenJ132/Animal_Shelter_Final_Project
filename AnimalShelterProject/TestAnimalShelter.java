@@ -2,6 +2,7 @@
 public class TestAnimalShelter {
 
 	public static void main(String[] args) {
+		displayProgramOverview();
 		RescueCenter FootHills = new RescueCenter("FootHills", 3);
 		Animal jerry = new Animal("jerry", "dog", 30, 1.3);
 		Animal terry = new Animal("terry", "zebra", 110, 5.2);
@@ -14,6 +15,25 @@ public class TestAnimalShelter {
 
 	}
 
+	
+	
+	//display program overview
+	
+	public static void displayProgramOverview()
+	{
+		System.out.println("*****************************");
+		System.out.println("Animal Rescue Center Analysis");
+		System.out.println("*****************************");
+		System.out.println("Reads animal information from a text file");
+		System.out.println("Displays each animal's weight category and weekly food");
+		System.out.println("Calculates average daily and total weekly food");
+		System.out.println("Writes rescue information and analysis to a file");
+		System.out.println("*****************************");
+		System.out.println("");
+		
+	
+		
+	}
 }
 //start Animal Class
 class Animal
@@ -205,5 +225,6 @@ class RescueCenter
 		}
 		
 	}
+	
 }
 //End Shelter Class
