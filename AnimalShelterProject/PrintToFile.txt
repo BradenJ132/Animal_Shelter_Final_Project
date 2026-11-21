@@ -1,0 +1,34 @@
+Braden's Rescue
+****************
+Animal name = Luna
+Animal species = Dog
+Animal weight = 20.0
+Animal weight category = medium
+Animal daily food amount = 1.5
+Animal weekly food amount= 10.5
+****************
+Animal name = Pip
+Animal species = Bird
+Animal weight = 0.8
+Animal weight category = small
+Animal daily food amount = 0.1
+Animal weekly food amount= 0.7000000000000001
+****************
+Animal name = Rex
+Animal species = Dog
+Animal weight = 100.0
+Animal weight category = Extra Large
+Animal daily food amount = 3.0
+Animal weekly food amount= 21.0
+****************
+Animal name = Bella
+Animal species = Cat
+Animal weight = 8.0
+Animal weight category = small
+Animal daily food amount = 0.6
+Animal weekly food amount= 4.2
+****************
+Animals at or above average daily food:
+ 
+Luna
+Rex

@@ -7,14 +7,18 @@ public class TestAnimalShelter {
 
 	public static void main(String[] args) {
 		displayProgramOverview();
-		String fileName = "rescue2.txt";
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter File name");
+		
+		String fileName = input.nextStr() + ".txt";
+		input.close();
 		try
 		{
 			RescueCenter testRescueCenter = new RescueCenter("Braden's Rescue", 6);
 			rescueSetUp(fileName, testRescueCenter);
 			testRescueCenter.displayShelterDetails();
 			testRescueCenter.displayAboveAverage();
-			
+			testRescueCenter.writeAnimalsToFile("PrintToFile.txt");
 			
 		}
 		catch (FileNotFoundException exception)
@@ -249,6 +253,44 @@ class RescueCenter
 		}
 		
 	}
-	
+	//write animals to file method
+		public void writeAnimalsToFile(String fileName) throws FileNotFoundException
+		{
+		try 
+		{
+			PrintWriter writeToFile = new PrintWriter(fileName);
+			writeToFile.println(rescueName);
+			writeToFile.println("****************");
+			for(int index = 0; index < animalCount; index++)
+			{
+				
+				writeToFile.println("Animal name = " + animals[index].getName());
+				writeToFile.println("Animal species = " + animals[index].getSpecies());
+				writeToFile.println("Animal weight = " + animals[index].getWeight());
+				writeToFile.println("Animal weight category = " + animals[index].determineWeightCategory());
+				writeToFile.println("Animal daily food amount = " + animals[index].getDailyFoodAmount());
+				writeToFile.println("Animal weekly food amount= " + animals[index].calculateWeeklyFood());
+				writeToFile.println("****************");
+				
+			}
+			writeToFile.println("Animals at or above average daily food:");
+			writeToFile.println(" ");
+			for (int index = 0; index < animalCount; index++)
+			{
+				if (animals[index].getDailyFoodAmount() >= getAverageDailyFood())
+						{
+					writeToFile.println(animals[index].getName());
+						}
+			}
+			writeToFile.close();
+			
+		}
+		catch (FileNotFoundException exception)
+		{
+			System.out.println("Error: Unable to find file " + fileName);
+		}
+		
+		}	
+		
 }
 //End Shelter Class
