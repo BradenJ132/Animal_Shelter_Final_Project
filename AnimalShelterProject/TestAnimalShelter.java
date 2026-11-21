@@ -11,6 +11,10 @@ public class TestAnimalShelter {
 		try
 		{
 			RescueCenter testRescueCenter = new RescueCenter("Braden's Rescue", 6);
+			rescueSetUp(fileName, testRescueCenter);
+			testRescueCenter.displayShelterDetails();
+			testRescueCenter.displayAboveAverage();
+			
 			
 		}
 		catch (FileNotFoundException exception)
