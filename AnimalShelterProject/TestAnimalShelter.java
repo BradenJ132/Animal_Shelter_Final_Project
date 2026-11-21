@@ -1,21 +1,32 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
 
 public class TestAnimalShelter {
 
 	public static void main(String[] args) {
-		displayProgramOverview();
-		RescueCenter FootHills = new RescueCenter("FootHills", 3);
-		Animal jerry = new Animal("jerry", "dog", 30, 1.3);
-		Animal terry = new Animal("terry", "zebra", 110, 5.2);
-		FootHills.addAnimal(jerry);
-		FootHills.addAnimal(terry);
-		FootHills.displayShelterDetails();
-		FootHills.getTotalWeeklyFood();
-		FootHills.displayAboveAverage();
+		
+		rescueSetUp()
 			
-
+//String animalName, String animalSpecies, double animalWeight, double dailyFoodAmount
 	}
-
-	
+//read from file
+	public static void rescueSetUp(String fileName, RescueCenter newRescueCenter) throws FileNotFoundException
+	{
+		File inputFile = new File(fileName);
+		Scanner fileScanner = new Scanner(inputFile);
+		while (fileScanner.hasNext())
+		{
+			String animalName = fileScanner.next();
+			String animalSpecies = fileScanner.next();
+			double animalWeight = fileScanner.nextDouble();
+			double dailyFoodAmount = fileScanner.nextDouble();
+			Animal animals = new Animal(animalName, animalSpecies, animalWeight, dailyFoodAmount);
+			newRescueCenter.addAnimal(animals);
+		}
+		fileScanner.close();
+	}
 	
 	//display program overview
 	
