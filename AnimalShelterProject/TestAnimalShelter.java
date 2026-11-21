@@ -6,8 +6,17 @@ import java.io.FileNotFoundException;
 public class TestAnimalShelter {
 
 	public static void main(String[] args) {
-		
-		rescueSetUp()
+		displayProgramOverview();
+		String fileName = "rescue2.txt";
+		try
+		{
+			RescueCenter testRescueCenter = new RescueCenter("Braden's Rescue", 6);
+			
+		}
+		catch (FileNotFoundException exception)
+		{
+			System.out.println("Error: Unable to find file " + fileName);
+		}
 			
 //String animalName, String animalSpecies, double animalWeight, double dailyFoodAmount
 	}
